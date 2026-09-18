@@ -2,7 +2,7 @@ export type Role = 'user' | 'assistant';
 
 /**
  * A tool_use block of an assistant message. `text` and `isError` mirror the
- * outcome once the transcript holds it (Claude Code attaches them).
+ * outcome once the transcript holds it.
  */
 export interface ToolUse {
   tool_use_id: string;
@@ -20,8 +20,9 @@ export interface ToolResult {
 }
 
 /**
- * One transcript message. The shape is a subset of Claude Code's
- * `SessionMessage`, so a session transcript can be passed in as is.
+ * One transcript message. The shape is deliberately minimal so any agent
+ * transcript can be adapted to it; `hooks/lib/rollout.mjs` maps Codex rollout
+ * items onto it.
  */
 export interface Message {
   role: Role;
