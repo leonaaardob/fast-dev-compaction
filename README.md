@@ -80,6 +80,11 @@ Requires Node.js >= 18 on PATH (hooks run `node`) and a TypeSafe API key:
 export TYPESAFE_API_KEY=<your key>
 ```
 
+The Codex desktop app does not source `~/.zshrc`, so for app-launched sessions
+the hooks also read the first readable file from `FAST_JEV_KEY_FILE`,
+`~/.typesafe_key`, or `~/.config/fast-jev-compaction/api_key` (one line, the
+raw key). The environment variable wins when both are set.
+
 From this repository as a marketplace:
 
 ```sh
@@ -101,6 +106,7 @@ Environment variables replace the Claude version's `userConfig`:
 | Variable | Default | Description |
 | --- | --- | --- |
 | `TYPESAFE_API_KEY` | — | TypeSafe API key (required for Jev) |
+| `FAST_JEV_KEY_FILE` | `~/.typesafe_key` | File fallback for the API key |
 | `FAST_JEV_MODEL` | `jev-latest` | Jev model name |
 | `FAST_JEV_BASE_URL` | `https://api.typesafe.ai/v1/systemone` | System One endpoint |
 | `FAST_JEV_KEEP_THRESHOLD` | `0.5` | Minimum keep probability for a call or result |

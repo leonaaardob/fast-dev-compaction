@@ -44,6 +44,7 @@ to stderr.
 | Variable | Default | Purpose |
 | --- | --- | --- |
 | `TYPESAFE_API_KEY` | — | Required for Jev requests |
+| `FAST_JEV_KEY_FILE` | `~/.typesafe_key` | Key file fallback when env is unset |
 | `FAST_JEV_MODEL` | `jev-latest` | Jev model name |
 | `FAST_JEV_BASE_URL` | System One endpoint | API endpoint override |
 | `FAST_JEV_KEEP_THRESHOLD` | `0.5` | Keep probability threshold |

@@ -1,5 +1,31 @@
 /** Plugin configuration: environment variables over library defaults. */
 
+import { readFileSync } from 'node:fs';
+import { homedir } from 'node:os';
+import { join } from 'node:path';
+
+/**
+ * API key fallback for contexts that do not inherit the user's shell
+ * environment (the Codex desktop app does not source ~/.zshrc). Reads the
+ * first readable file from FAST_JEV_KEY_FILE or ~/.typesafe_key.
+ */
+function keyFromFile(env) {
+  const candidates = [
+    env.FAST_JEV_KEY_FILE,
+    join(homedir(), '.typesafe_key'),
+    join(homedir(), '.config', 'fast-jev-compaction', 'api_key'),
+  ].filter(Boolean);
+  for (const path of candidates) {
+    try {
+      const value = readFileSync(path, 'utf8').trim();
+      if (value) return value;
+    } catch {
+      /* next candidate */
+    }
+  }
+  return undefined;
+}
+
 function num(env, key) {
   const value = env[key];
   if (value === undefined || value === '') return undefined;
@@ -12,7 +38,7 @@ export function configFromEnv(env = process.env) {
     minReductionRatio: num(env, 'FAST_JEV_MIN_REDUCTION') ?? 0.25,
     contextChars: num(env, 'FAST_JEV_CONTEXT_CHARS') ?? 60_000,
     model: env.FAST_JEV_MODEL || undefined,
-    apiKey: env.TYPESAFE_API_KEY || undefined,
+    apiKey: env.TYPESAFE_API_KEY || keyFromFile(env),
     baseUrl: env.FAST_JEV_BASE_URL || undefined,
     goal: env.FAST_JEV_GOAL || undefined,
   };
