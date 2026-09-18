@@ -1,0 +1,14 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "fast-jev-compaction",
+  "version": "0.3.0",
+  "description": "Verbatim Jev-guided context restoration around Codex compaction.",
+  "author": {
+    "name": "tamaratran",
+    "url": "https://github.com/tamaratran"
+  },
+  "homepage": "https://github.com/tamaratran/fast-jev-compaction",
+  "repository": "https://github.com/tamaratran/fast-jev-compaction",
+  "license": "MIT",
+  "keywords": ["codex", "compaction", "context", "jev", "typesafe"]
+}

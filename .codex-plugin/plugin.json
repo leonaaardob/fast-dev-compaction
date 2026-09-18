@@ -1,0 +1,28 @@
+{
+  "name": "fast-jev-compaction",
+  "version": "0.3.0",
+  "description": "Verbatim Jev-guided context restoration around Codex compaction.",
+  "author": {
+    "name": "tamaratran",
+    "url": "https://github.com/tamaratran"
+  },
+  "homepage": "https://github.com/tamaratran/fast-jev-compaction",
+  "repository": "https://github.com/tamaratran/fast-jev-compaction",
+  "license": "MIT",
+  "keywords": ["codex", "compaction", "context", "jev", "typesafe"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Fast Jev Compaction",
+    "shortDescription": "Verbatim Jev-guided context restoration around Codex compaction.",
+    "longDescription": "Scores every tool call and result with TypeSafe's Jev model before Codex compacts a session, keeps what still matters verbatim, and re-injects the pruned history after compaction so exact file contents, errors, and commands survive the built-in summary.",
+    "developerName": "tamaratran",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write"],
+    "websiteURL": "https://github.com/tamaratran/fast-jev-compaction",
+    "defaultPrompt": [
+      "Prune a Codex rollout transcript with fast-jev-compaction.",
+      "Show what Jev kept from my last compacted session."
+    ],
+    "brandColor": "#10A37F"
+  }
+}

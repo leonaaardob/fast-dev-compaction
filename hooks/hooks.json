@@ -1,3 +1,45 @@
 {
-  "modules": ["./fast-jev.ts"]
+  "description": "Jev-guided verbatim context restoration around Codex compaction.",
+  "hooks": {
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${PLUGIN_ROOT}/hooks/pre-compact.mjs\"",
+            "commandWindows": "node \"%PLUGIN_ROOT%\\hooks\\pre-compact.mjs\"",
+            "timeout": 180,
+            "statusMessage": "Scoring tool calls with Jev"
+          }
+        ]
+      }
+    ],
+    "PostCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${PLUGIN_ROOT}/hooks/post-compact.mjs\"",
+            "commandWindows": "node \"%PLUGIN_ROOT%\\hooks\\post-compact.mjs\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${PLUGIN_ROOT}/hooks/session-start.mjs\"",
+            "commandWindows": "node \"%PLUGIN_ROOT%\\hooks\\session-start.mjs\"",
+            "timeout": 15,
+            "statusMessage": "Restoring Jev-kept context",
+            "additionalContextLimit": 16000
+          }
+        ]
+      }
+    ]
+  }
 }
