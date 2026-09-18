@@ -20,7 +20,7 @@ while showing it the whole conversation. User and assistant text stays
 verbatim and in order.
 
 The repository is both an npm package (`src/`) and a Codex plugin
-(`hooks/`, `plugin.json`, `.codex-plugin/`, `skills/`) that uses the package
+(`hooks/`, `.codex-plugin/`, `skills/`) that uses the package
 to preserve the Jev-pruned transcript around Codex's built-in compaction.
 
 ## How it works in Codex
@@ -159,8 +159,7 @@ TYPESAFE_API_KEY="$(cat ~/.typesafe_key)" npm run demo
 - `dist/` — compiled engine imported by the hooks at runtime
 - `hooks/` — Codex lifecycle hooks (`hooks.json` + `.mjs` scripts + `lib/`)
 - `skills/fast-jev-compaction/` — agent-facing usage docs
-- `plugin.json` — portable Agent Plugins manifest
-- `.codex-plugin/plugin.json` — Codex overlay manifest
+- `.codex-plugin/plugin.json` — Codex plugin manifest
 - `.agents/plugins/marketplace.json` — repo marketplace (Git source)
 - `tests/` — vitest suite (library + rollout adapter)
 - `examples/demo.ts` — live-network library demo
