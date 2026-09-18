@@ -5,6 +5,11 @@ compacts, every tool call and result is scored in fast requests; after
 compaction, the verbatim history Jev kept is re-injected as context. Also
 usable as an npm library.
 
+> **Codex port of [tamaratran/fast-jev-compaction](https://github.com/tamaratran/fast-jev-compaction).**
+> The compaction engine (`src/`) and the Jev scoring design are by
+> [@tamaratran](https://github.com/tamaratran); this repository replaces the
+> original Claude Code function-hook adapter with Codex lifecycle hooks.
+
 ## What and why
 
 Codex's built-in compaction asks a model to summarize old turns. A summary is
@@ -78,7 +83,7 @@ export TYPESAFE_API_KEY=<your key>
 From this repository as a marketplace:
 
 ```sh
-codex plugin marketplace add tamaratran/fast-jev-compaction
+codex plugin marketplace add leonaaardob/fast-dev-compaction
 codex plugin add fast-jev-compaction@fast-jev-compaction
 ```
 
@@ -153,3 +158,12 @@ TYPESAFE_API_KEY="$(cat ~/.typesafe_key)" npm run demo
 - `.agents/plugins/marketplace.json` — repo marketplace (Git source)
 - `tests/` — vitest suite (library + rollout adapter)
 - `examples/demo.ts` — live-network library demo
+
+## Credits
+
+- Original project and Jev compaction engine:
+  [tamaratran/fast-jev-compaction](https://github.com/tamaratran/fast-jev-compaction)
+  by [@tamaratran](https://github.com/tamaratran) (MIT).
+- This fork keeps `src/` unchanged and ports the integration layer to Codex
+  lifecycle hooks (`hooks/`), the portable plugin manifests, and the
+  `skills/` documentation.

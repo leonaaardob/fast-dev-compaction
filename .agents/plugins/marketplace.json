@@ -8,7 +8,7 @@
       "name": "fast-jev-compaction",
       "source": {
         "source": "url",
-        "url": "https://github.com/tamaratran/fast-jev-compaction.git"
+        "url": "https://github.com/leonaaardob/fast-dev-compaction.git"
       },
       "policy": {
         "installation": "AVAILABLE",

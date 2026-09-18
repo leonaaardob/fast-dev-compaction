@@ -7,8 +7,14 @@
     "name": "tamaratran",
     "url": "https://github.com/tamaratran"
   },
-  "homepage": "https://github.com/tamaratran/fast-jev-compaction",
-  "repository": "https://github.com/tamaratran/fast-jev-compaction",
+  "homepage": "https://github.com/leonaaardob/fast-dev-compaction",
+  "repository": "https://github.com/leonaaardob/fast-dev-compaction",
   "license": "MIT",
-  "keywords": ["codex", "compaction", "context", "jev", "typesafe"]
+  "keywords": [
+    "codex",
+    "compaction",
+    "context",
+    "jev",
+    "typesafe"
+  ]
 }
