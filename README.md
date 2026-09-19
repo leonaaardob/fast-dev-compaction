@@ -5,6 +5,19 @@ compacts, every tool call and result is scored in fast requests; after
 compaction, the verbatim history Jev kept is re-injected as context. Also
 usable as an npm library.
 
+> [!WARNING]
+> **I do not recommend using this.** This is an experimental proof of concept, not a
+> tool I stand behind — for real work, just use the default compaction in Codex or
+> Claude Code.
+>
+> The approach has been [critiqued in detail by Theo (@t3.gg)](https://x.com/theo/status/2100762304862384257),
+> who argues that pruning tool calls and results on a probability threshold
+> misunderstands how compaction and context management actually work: it discards the
+> reasoning traces frontier models never expose over the API, ignores that models are
+> trained on their own compaction flows, and makes history edits trigger expensive cache
+> rewrites. Treat this repo as a write-up of an idea, not as something to run in a
+> real workflow.
+
 > **Codex port of [tamaratran/fast-jev-compaction](https://github.com/tamaratran/fast-jev-compaction).**
 > The compaction engine (`src/`) and the Jev scoring design are by
 > [@tamaratran](https://github.com/tamaratran); this repository replaces the
